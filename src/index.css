@@ -92,6 +92,20 @@ nav {
   align-items: center;
 }
 
+.button {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove {
+  background-color: #ff0000;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -106,6 +120,8 @@ nav {
 .article-detail {
   padding: 1rem;
 }
+
+
 
 .article-detail img {
   width: 100%;
