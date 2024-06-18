@@ -4,6 +4,7 @@ import { getArticles } from '../redux/actions/articleActions';
 import ArticleCard from '../components/ArticleCard';
 import Pagination from '../components/Pagination';
 import Navbar from '../components/Navbar';
+import './styles.css'; // Ensure this matches the path to your CSS file
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,6 @@ const HomePage = () => {
   const [category, setCategory] = useState('');
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-  const [favorites, setFavorites] = useState(() => {
-    // Load favorites from local storage
-    const savedFavorites = localStorage.getItem('favorites');
-    return savedFavorites ? JSON.parse(savedFavorites) : [];
-  });
 
   useEffect(() => {
     dispatch(getArticles(category, page, searchTerm));
