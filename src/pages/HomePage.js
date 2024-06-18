@@ -4,7 +4,7 @@ import { getArticles } from '../redux/actions/articleActions';
 import ArticleCard from '../components/ArticleCard';
 import Pagination from '../components/Pagination';
 import Navbar from '../components/Navbar';
-import './styles.css'; // Ensure this matches the path to your CSS file
+
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -32,11 +32,9 @@ const HomePage = () => {
   };
 
   const handleSaveToFavorites = (article) => {
-    setFavorites((prevFavorites) => {
-      const updatedFavorites = [...prevFavorites, article];
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-      return updatedFavorites;
-    });
+    const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const updatedFavorites = [...savedFavorites, article];
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
   return (
