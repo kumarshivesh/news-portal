@@ -1,35 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 
-const ArticleCard = ({ article, onSaveToFavorites }) => {
+
+const ArticleCard = ({ article, onSaveToFavorites, onRemoveFromFavorites }) => {
   const [imgSrc, setImgSrc] = React.useState(article.urlToImage);
 
   // Check if the article should be rendered
   if (
     article.title === '[Removed]' || 
     article.description === '[Removed]' || 
-    !article.urlToImage // Check if image source is present
+    !article.urlToImage
   ) {
-    return null; // Do not render the card if title, description, or image is invalid
+    return null;
   }
-
-  const handleError = () => {
-    setImgSrc('path_to_default_image'); // Replace with the path to a default image
-  };
-
-  const isExternal = article.url.startsWith('http');
 
   return (
     <div className="article-card">
-      <img src={imgSrc} alt={article.title} onError={handleError} />
+      <div className="image-container">
+      <img src={imgSrc} alt={article.title}  />
+      </div>
       <h2>{article.title}</h2>
       <p>{article.description}</p>
-      {isExternal ? (
+      <div className="botton-container">
         <a href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
-      ) : (
-        <Link to={`/article/${encodeURIComponent(article.url)}`}>Read More</Link>
-      )}
-      <button onClick={() => onSaveToFavorites(article)}>Save to Favorites</button>
+        {onSaveToFavorites && (
+          <button onClick={() => onSaveToFavorites(article)}>Save to Favorites</button>
+        )}
+        {onRemoveFromFavorites && (
+          <button onClick={() => onRemoveFromFavorites(article.url)}>Remove</button>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-/* index.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -8,25 +7,69 @@ body {
 nav {
   background: #333;
   color: #fff;
-  padding: 1rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
+
+.logo-favorites {
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    column-gap: 15px;
+  }
+}
+
+.logo-text {
+  font-size: 40px;
+  font-weight: bolder;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    font-weight: 200;
+  }
+}
+
+.favorites {
+  text-decoration: underline; 
+  color: inherit;
+  padding: 0; 
+  margin: 0; 
+  font: inherit; 
+  cursor: pointer; 
+  font-size: larger;
+  font-weight: 700;
+}
+
+.search-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .articles-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
   padding: 1rem;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .article-card {
-  width: 30%;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin: 1rem;
+  padding: 1rem;
   overflow: hidden;
+  background-color: white;
 }
 
 .article-card img {
@@ -41,6 +84,12 @@ nav {
 
 .article-card p {
   padding: 0.5rem;
+}
+
+.botton-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .pagination {
@@ -61,4 +110,14 @@ nav {
 .article-detail img {
   width: 100%;
   height: auto;
+}
+
+.favorites-head {
+  background: #333;
+  color: #fff;
+  padding: 1.5rem;
+  font-size: 40px;
+  font-weight: bolder;
+  margin: 0px;
+  text-align: center;
 }

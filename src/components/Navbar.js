@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Navbar = ({ onCategoryChange, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -9,20 +10,25 @@ const Navbar = ({ onCategoryChange, onSearch }) => {
 
   return (
     <nav>
-      <h1>React News Portal</h1>
+      <div className="logo-favorites">
+        <h1 className="logo-text">React News Portal</h1>
+        <Link className="favorites" to="/favorites">Favorites</Link>
+      </div>
       <select onChange={(e) => onCategoryChange(e.target.value)}>
         <option value="">All</option>
         <option value="business">Business</option>
         <option value="technology">Technology</option>
         <option value="entertainment">Entertainment</option>
       </select>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search articles..."
-      />
-      <button onClick={handleSearch}>Search</button>
+      <div className="search-container">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search articles..."
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
     </nav>
   );
 };

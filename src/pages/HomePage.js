@@ -38,7 +38,6 @@ const HomePage = () => {
   const handleSaveToFavorites = (article) => {
     setFavorites((prevFavorites) => {
       const updatedFavorites = [...prevFavorites, article];
-      // Save favorites to local storage
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
       return updatedFavorites;
     });
@@ -57,12 +56,6 @@ const HomePage = () => {
           ))}
       </div>
       <Pagination currentPage={page} totalResults={totalResults} onPageChange={handlePageChange} />
-      <h2>Favorites</h2>
-      <div className="articles-list">
-        {favorites.map((article) => (
-          <ArticleCard key={article.url} article={article} />
-        ))}
-      </div>
     </div>
   );
 };
