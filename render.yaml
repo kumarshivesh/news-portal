@@ -8,4 +8,4 @@ services:
     startCommand: 'cd news-api-proxy && node server.js'
     envVars:
       - key: API_KEY
-        value: eb50e78b9f9e43f0b38b069618817a80 # Replace with your actual NewsAPI key
+        value: eb50e78b9f9e43f0b38b069618817a80
