@@ -18,7 +18,7 @@ const ArticleCard = ({ article, onSaveToFavorites, onRemoveFromFavorites }) => {
       <div className='botton-container'>
         <a className='button' href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
         {onSaveToFavorites && (
-          <button className='button' onClick={() => onSaveToFavorites(article)}>Save to Favorites</button>
+          <button className='button save' onClick={() => onSaveToFavorites(article)}>Save to Favorites</button>
         )}
         {onRemoveFromFavorites && (
           <button className='button remove' onClick={() => onRemoveFromFavorites(article.url)}>Remove</button>

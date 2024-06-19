@@ -104,6 +104,11 @@ nav {
   border-radius: 4px;
 }
 
+.save {
+  background-color: #e4b721;
+  color: black;
+}
+
 .remove {
   background-color: #ff0000;
 }

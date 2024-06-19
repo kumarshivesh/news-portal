@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000'; // Change to your backend URL if different
+const BASE_URL = 'http://localhost:5000'; 
 
 export const fetchArticles = async (category, page, searchTerm = '') => {
   try {
