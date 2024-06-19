@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000'; 
+const BASE_URL = 'https://news-portal-backend-w5gg.onrender.com'; 
 
 export const fetchArticles = async (category, page, searchTerm = '') => {
   try {
