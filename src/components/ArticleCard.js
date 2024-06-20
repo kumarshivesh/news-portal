@@ -12,9 +12,9 @@ const ArticleCard = ({ article, onSaveToFavorites, onRemoveFromFavorites }) => {
 
   return (
     <div className="article-card">
-        <img src={article.urlToImage} alt={article.title} />
-      <h2>{article.title.slice(0, 79)}</h2>
-      <p>{article.description.slice(0, 109)}</p>
+      <img src={article.urlToImage} alt={article.title || 'No title'} />
+      <h2>{article.title ? article.title.slice(0, 79) : 'No title available'}</h2>
+      <p>{article.description ? article.description.slice(0, 109) : 'No description available'}</p>
       <div className='botton-container'>
         <a className='button' href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
         {onSaveToFavorites && (
